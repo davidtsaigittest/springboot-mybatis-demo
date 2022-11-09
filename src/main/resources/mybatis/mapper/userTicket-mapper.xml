@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootmybatisdemo.mapper.UserTicketMapper">
+    <insert id="saveList" parameterType="UserTicket">
+        insert into user_ticket(id, userId, ticketNo, ticketType, status, createDate)
+        values
+        <foreach collection="list" item="ticket" separator=",">
+            (#{ticket.id}, #{ticket.userId}, #{ticket.ticketNo}, #{ticket.ticketType},
+             #{ticket.status}, #{ticket.createDate})
+        </foreach>
+    </insert>
+</mapper>
