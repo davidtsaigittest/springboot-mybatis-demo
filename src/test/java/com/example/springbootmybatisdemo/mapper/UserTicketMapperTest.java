@@ -26,4 +26,10 @@ public class UserTicketMapperTest {
         Assertions.assertEquals(result, 2);
     }
 
+    @Test
+    public void testSelectByUserIds() {
+        List<UserTicket> userTickets = userTicketMapper.selectByUserIds(Arrays.asList("A123456789", "B666688888"));
+        Assertions.assertTrue(userTickets.size() > 0);
+    }
+
 }
